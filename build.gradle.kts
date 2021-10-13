@@ -57,24 +57,11 @@ dependencies {
     implementation ("com.influxdb:influxdb-client-kotlin:2.1.0")
     implementation ("com.influxdb:influxdb-client-flux:2.1.0")
 
-//    implementation ("redis.clients:jedis:2.9.0")
-//    implementation ("redis.clients:jedis:2.10.2")
     implementation ("redis.clients:jedis:3.6.0")
 
     implementation("it.skrape:skrapeit:1.1.5")
 
-//    implementation ("com.localebro:okhttpprofiler:1.0.8")
-//    implementation ("com.itkacher.okhttpprofiler.OkHttpProfilerInterceptor")
-//    implementation ("com.localebro.okhttpprofiler.OkHttpProfilerInterceptor")
-//    implementation(project(":ktor-swagger"))
-//    implementation("io.ktor:ktor-gson:$ktor_version")
 }
-
-//kotlin.sourceSets["main"].kotlin.srcDirs("src")
-//kotlin.sourceSets["test"].kotlin.srcDirs("test")
-
-//sourceSets["main"].resources.srcDirs("resources")
-//sourceSets["test"].resources.srcDirs("testresources")
 
 tasks.test {
     useJUnitPlatform()
