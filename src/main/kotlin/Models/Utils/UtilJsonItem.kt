@@ -35,7 +35,8 @@ class UtilJsonItem {
 
     private fun convertItem(itemRaw: JsonItemRaw?): JsonItem?{
         if (itemRaw != null) {
-                enumMethod.getNameByName(itemRaw.method)?.let { it1 ->
+            val method = itemRaw.method ?: ItemDefault.METHOD.value
+                enumMethod.getNameByName(method)?.let { it1 ->
                 Method.valueOf(it1).let { method ->
 //                    val auth = utilAuth.get(itemRaw.auth)
                     val query = if (itemRaw.query!=null) itemRaw.query else ItemDefault.QUERY.value

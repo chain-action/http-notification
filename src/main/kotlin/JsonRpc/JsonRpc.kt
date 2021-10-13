@@ -1,21 +1,39 @@
 package JsonRpc
 
+import com.google.gson.Gson
+import mu.KotlinLogging
 import org.json.JSONArray
 import org.json.JSONObject
 
 class JsonRpc {
 
+    private data class _RequestData(
+        val jsonrpc: String,
+        val method: String,
+        val params: Any,
+        val id: Int,
+    )
+
     data class Result(var result: JSONObject? = null, var error: ErrorData? = null)
 
-//    private var errors = mutableMapOf<String, JSONObject>()
-
-//    private val errorMessage = ErrorMessage()
-
-    //    private val results = arrayListOf<JSONObject>()
-//    private val results = mutableMapOf<String, JSONObject>()
+    private val logger = KotlinLogging.logger {}
 
     private val ids = mutableMapOf<String, Result>()
 
+    fun parse(strJson: String): RequestData? {
+        val gson = Gson()
+        try {
+             gson.fromJson(strJson, _RequestData::class.java)?.let {
+                 if (it.jsonrpc =="2.0" && it.id>0 && it.method!=null) {
+                     val params = gson.toJson(it.params)
+                     return RequestData(jsonrpc = it.jsonrpc, method = it.method, params = params, id = it.id)
+                 }
+             }
+        } catch ( e: Exception) {
+            logger.error { "Exception $e"}
+        }
+        return null
+    }
 
     fun setError(id: Int, error: ErrorData) = setError(id.toString(), error)
 

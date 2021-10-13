@@ -37,25 +37,15 @@ class OkHttpRequest {
     }
 
     fun get(url: String, method: Method, query: String, payload: String, headers: Map<String, String>?, basicAuth: Pair<String, String>?): Response? {
-//        val login = "your_login"
-//        val password = "p@s\$w0rd"
-//        val basicAuth2 = login to password
         requestBuilder(url, method, query, payload, headers, basicAuth)?.let { request ->
-//        logger.debug { query }
-//        println(query.toRequestBody(MEDIA_TYPE_JSON).toString())
             try {
                 logger.debug { "get(): ${request}" }
                 client.newCall(request).execute().use { response ->
 
                     logger.debug { "get() response.code: ${response.code}" }
-//            println(response.body?.string())
                     if (!response.isSuccessful) {
-//                    throw IOException("Unexpected code $response")
                         logger.error { "Unexpected code $response" }
                     }
-//            println("Server: ${response.header("Server")}")
-//            println("Date: ${response.header("Date")}")
-//            println("Vary: ${response.headers("Vary")}")
                     if (response.body != null) {
                         val body = response.body!!.string()
                         logger.info { "get() body: ${body}" }
@@ -65,7 +55,6 @@ class OkHttpRequest {
             } catch (e: Exception) {
                 logger.error { "Error get(): ${request} Exception: ${e}" }
                 logger.error { "Error : Exception: ${e}" }
-//            throw IOException("Exception $e")
             }
         }
         return null
@@ -75,18 +64,6 @@ class OkHttpRequest {
         val httpUrl = url.toHttpUrlOrNull()
         if (httpUrl==null) return null
 
-//        val request = Request.Builder()
-//        if (BuildConfig.DEBUG) { builder.addInterceptor(OkHttpProfilerInterceptor()) }
- /*       val url_new = if (method == Method.GET) {
-            HttpUrl.
-            val httpBuilder = HttpUrl.parse(url)!!.newBuilder()
-//            : HttpUrl.Builder
-            ""
-        } else {
-            url
-        }
-        logger.debug { "url_new: ${url_new}" }*/
-
         val request = Request.Builder()
             .url(url)
             .header("User-Agent", user_agent)
@@ -94,21 +71,16 @@ class OkHttpRequest {
 //            .addHeader("Content-Type", "application/json")
 //            .addHeader("DNT", "1")
             .addHeader("Accept-Encoding", "gzip, deflate, br")
-//        val headers: Map<String, String>? =null
-//        val headers: Map<String, String>? = mapOf("Authorization" to "Bearer Qwe123")
-//        val authorization = "" to ""
         if (headers!=null) {
             headers.forEach { key, value ->
                 request.addHeader(key, value)
             }
         }
 
-
         if (basicAuth!=null) {
             val credential = Credentials.basic(basicAuth.first, basicAuth.second)
             request.addHeader("Authorization", credential)
         }
-//        request.addHeader()
 
         if (method == Method.POST) {
             if (query != null) {
@@ -132,8 +104,6 @@ class OkHttpRequest {
                 request.put(payload.toRequestBody(MEDIA_TYPE_DATA))
             }
 
-//            if (query!=null) request.put(payload.toRequestBody(MEDIA_TYPE_DATA))
-//            else request.put(payload.toRequestBody(MEDIA_TYPE_DATA))
         } else if (method == Method.JSONRPC) {
 
             if (query!=null) {

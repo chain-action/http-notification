@@ -16,6 +16,7 @@ class ErrorMessage {
             ErrorEnum.NoConfirmationRightsURL.name to ErrorData(4, "There is no confirmation of the rights to manage the URL address"),
             ErrorEnum.EntryExists.name to ErrorData(5, "The entry already exists"),
             ErrorEnum.Unknown.name to ErrorData(6, "Unknown error"),
+            ErrorEnum.MethodNotFound.name to ErrorData(-32601, "Method not found"),
         )
     }
 

@@ -7,4 +7,5 @@ enum class ErrorEnum {
     AddressNotCorrect,
     NoConfirmationRightsURL,
     EntryExists,
+    MethodNotFound,
 }

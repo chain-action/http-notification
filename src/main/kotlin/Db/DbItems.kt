@@ -41,6 +41,19 @@ class DbItems {
         return itemRaw
     }
 
+    fun update(item: Item, userId: Int) = convertItem(item)?.let { update(it, userId) }
+    fun update(itemRaw: ItemRaw, userId: Int) {
+        transaction {
+            addLogger(StdOutSqlLogger)
+            ItemsTable.update({ ItemsTable.uid.eq(itemRaw.uid) and ItemsTable.user.eq(userId) }) {
+                it[method] = itemRaw.method
+                it[url] = itemRaw.url
+                it[query] = itemRaw.query
+                it[auth] = itemRaw.auth
+            }
+        }
+    }
+
     fun get(uid: String) = convertItem(getRaw(uid))
 
     fun get(uid: String, userId: Int) = convertItem(getRaw(uid, userId))
@@ -87,6 +100,8 @@ class DbItems {
         }
         return _uid
     }
+
+
 
     private fun TableToData(resultRow: ResultRow): ItemRaw {
         return ItemRaw(

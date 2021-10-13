@@ -72,7 +72,9 @@ class Process {
 
                 if (payloadObj != null && it.value() != null) {
                     val uid = payloadObj.first
-                    val txtPayload = it.value()!!
+                    /** Security fix */
+//                    val txtPayload = it.value()!!
+                    val txtPayload = "*** "+payloadObj.second+" "+ payloadObj.third
 
                     val item = dbItems.get(uid)
                     if (item != null) {
