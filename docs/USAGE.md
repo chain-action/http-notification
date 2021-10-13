@@ -6,24 +6,43 @@
 - [Service Information](#service-information)
 - [All parameters of the config file](ConfigYML.md)
 
-
 _Attention: we should replace `localhost` with Ip or domain of your service_
 
 ## Adding notification entry
 
 __api v0__
 
-Отправьте методом POST на `http://localhost:8010/v0/jsonrpc` с параметрами hash (уникальный хеш записи) и data (URL закодированный в base64)
+Send by method POST to `http://localhost:8010/v0/jsonrpc` with hash (unique entry hash) and data (base64 encoded URL) parameters
 ```shell
 curl 'http://localhost:8010/v0/jsonrpc' -X POST -H 'Content-Type: application/x-www-form-urlencoded' --data-raw 'hash=0a0b0c0d&data=aHR0cDovLzEyNy4wLjAuMTo4MTgxL3JlcXVlc3Q='
 ```
 
 __api v1__ (beta)
 
+JSON-RPC request to `http://localhost:8010/v1/jsonrpc`
+
+Minimalistic example
 ```shell
-
+curl --header "Content-Type: application/json" --request POST \
+  --data '{"jsonrpc": "2.0","id":1,"method":"add", "params": {"hash":"0a0b0c0d", "url":"http://127.0.0.1:8181/request"}}' \
+  http://localhost:8010/v1/jsonrpc
 ```
+Advanced example
+```shell
+curl --header "Content-Type: application/json" --request POST \
+  --data '{"jsonrpc":"2.0","id":1,"method":"add","params": {"hash":"0a0b0c0d", "method":"POST", "url":"http://127.0.0.1:8181/request", auth={"user":"user1", "pass":"password"}}}' \
+  http://localhost:8010/v1/jsonrpc
+```
+Decoding json object parameters API v1
 
+| Name | Description |
+| ------- | :--------------------------------------------- |
+| hash    | unique hash of the entry  |
+| method  | http methods: POST, PUT, JSONRPC, GET      |
+| url     | url address: https://domain/request | 
+| auth    | Authorization object. default `null`, Basic authorization: `{"user":"user1", "pass":"password"}`, Bearer token: `{"bearer":"secret-token"}` | 
+
+You can [get all parameters by API](#parameter-structure)
 
 ## Protecting the recipient page
 
@@ -125,7 +144,7 @@ Required to create a notification entity via the API. Available at `http://local
         "required": true
       },
       {
-        "descr": "List of available http methods ",
+        "descr": "List of available http methods",
         "default": "POST",
         "name": "method",
         "type": "list",
