@@ -1,5 +1,6 @@
 # Usage
 
+- [Adding a notification entry](#Adding a notification entry)
 - [Protecting the recipient page](#protecting-the-recipient-page)
 - [Parameter structure](#parameter-structure)
 - [Service Information](#service-information)
@@ -7,6 +8,22 @@
 
 
 _Attention: we should replace `localhost` with Ip or domain of your service_
+
+## Adding a notification entry
+
+__api v0__
+
+Отправьте методом POST на `http://127.0.0.1:8010/v0/jsonrpc` с параметрами hash (уникальный хеш записи) и data (URL закодированный в base64)
+```shell
+curl 'http://127.0.0.1:8010/v0/jsonrpc' -X POST -H 'Content-Type: application/x-www-form-urlencoded' --data-raw 'hash=0a0b0c0d&data=aHR0cDovLzEyNy4wLjAuMTo4MTgxL3JlcXVlc3Q='
+```
+
+__api v1__ (beta)
+
+```shell
+
+```
+
 
 ## Protecting the recipient page
 
@@ -28,7 +45,7 @@ You need to add the `<meta name="..." content="...">` entry inside the head tag 
 ```html
 <head>
 ...
-  <meta name="ftpro-notify-verification" content="_69aad49845d88aee43e5b696a5b249abb91a69b18dee85eaf5c76d31970b04fc">
+  <meta name="ftpro-notify-verification" content="69aad49845d88aee43e5b696a5b249abb91a69b18dee85eaf5c76d31970b04fc">
 </head>
 ```
 
