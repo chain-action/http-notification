@@ -1,4 +1,4 @@
-# Http Notification module
+# HTTP Notification Service
 
 Особенности:
 - Гарантированная доставка http уведомления
