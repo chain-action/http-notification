@@ -1,6 +1,6 @@
 # Usage
 
-- [Adding a notification entry](#Adding a notification entry)
+- [Adding a notification entry](#adding-notification-entry)
 - [Protecting the recipient page](#protecting-the-recipient-page)
 - [Parameter structure](#parameter-structure)
 - [Service Information](#service-information)
@@ -9,7 +9,7 @@
 
 _Attention: we should replace `localhost` with Ip or domain of your service_
 
-## Adding a notification entry
+## Adding notification entry
 
 __api v0__
 

@@ -33,6 +33,8 @@
 - https://requestinspector.com/ (наиболее простой)
 - https://mocklab.io/ (красивый)
 
+__Important__: When testing other URLs (the above URLs are added to debug exceptions), you must  [verify ownership of the domain or page](docs/USAGE.md#protecting-the-recipient-page). 
+
 ### Тестирование с поддержкой дешифрования
 Для получения уведомлений был разработан [специальный тестовый сервер](https://github.com/chain-action/httpserver4encoded-notifications) с поддержкой дешифрования [по протоколу](https://tonlabs.notion.site/Notification-provider-onboarding-3dd961bce8954d0da80208b9a908c773)
 
