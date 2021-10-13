@@ -25,3 +25,4 @@ hs_err_pid*
 /config.yml
 /src/main/kotlin/Test1.kt
 /.gradle/
+/out/artifacts/HttpNotification_main_jar/config.yml
