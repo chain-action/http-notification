@@ -50,9 +50,9 @@ cd app
 wget -O HttpNotification.main.jar https://github.com/chain-action/http-notification/uploads/f15f7f0abd58beb5061d01613c32d47b/HttpNotification.main.jar
 ```
 
-- Copy the file `config.yml` and edit its parameters (mysql, kafka, influxdb sections). [More on config.yml parameters](ConfigYML.md)
+- Create file `config.yml` based on `example.config.yml` and edit its parameters (mysql, kafka, influxdb sections). [More on config.yml parameters](ConfigYML.md)
 ```shell
-wget -O config.yml https://github.com/chain-action/http-notification/-/raw/master/config.yml
+cp example.config.yml config.yml
 vim config.yml
 ```
 - Application initialization (creating tables in the database)
@@ -64,7 +64,7 @@ java -Dfile.encoding=UTF-8 -jar HttpNotification.main.jar --createtable
 java -Dfile.encoding=UTF-8 -jar HttpNotification.main.jar
 ```
 
-- Configure a backend server (nginx, apache, etc, ..) for API accessibility via https protocol
+- Configure a backend server (nginx, apache, etc, ...) for API accessibility via https protocol
 
 Examples location for Nginx
 ```txt
