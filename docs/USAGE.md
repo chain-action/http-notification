@@ -109,7 +109,7 @@ echo -n Webhttps://testn1.free-ton.online/Notify | sha256sum
 ```
 
 ## Parameter structure
-Required to create a notification entity via the API. Available at `http://localhost:8010/v1/structure`, but only practical in v1 `http://localhost:8010/v1/structure`
+Required to create a notification entity via the API. Available at `http://localhost:8010/v0/structure`, but only practical in v1 `http://localhost:8010/v1/structure`
 ```json
 {
   "result": {

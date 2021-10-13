@@ -30,6 +30,7 @@ services:
       dockerfile: Dockerfile
     ports:
       - "${APP_PORT}:8010"
+#    network_mode: host
     links:
       - db
       - redis
