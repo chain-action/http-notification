@@ -32,7 +32,7 @@ docker-compose up --build -d
 __Required applications__
 
 - MariaDB or Mysql ([install](https://mariadb.org/download/))
-- Java JRE (OpenJDK JRE at least 11 version)
+- Java JRE (OpenJDK JRE at least 15 version)
 - Redis ([install](https://redis.io/download))
 - InfluxDB 2.0 ([install](https://portal.influxdata.com/downloads/)) (optional)
 
