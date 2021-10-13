@@ -60,7 +60,7 @@ Allow: /
 ```
 
 ### Security code for the page
-You need to add the `<meta name="..." content="...">` entry inside the head tag on the page
+You need to add the `<meta name="ftpro-notify-verification" content="...">` entry inside the head tag on the page
 ```html
 <head>
 ...
