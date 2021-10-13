@@ -8,7 +8,7 @@ services:
   java:
     image: openjdk:latest
 #    image: openjdk:8-jdk-alpine
-#    command: "wget -O /usr/local/bin/docker-compose http://gitlab.xeon24.local:8980/counters/http-notification/uploads/f15f7f0abd58beb5061d01613c32d47b/HttpNotification.main.jar"
+#    command: "wget -O /usr/local/bin/docker-compose https://github.com/chain-action/http-notification/uploads/f15f7f0abd58beb5061d01613c32d47b/HttpNotification.main.jar"
     command: java --version
 #    command: apk add --no-cache curl
 #    ports:
@@ -18,7 +18,7 @@ services:
       dockerfile: Dockerfile
 #    command: >
 #      bash -c "apt-get update && apt-get install -y wget
-#      && wget -O /usr/local/bin/docker-compose http://gitlab.xeon24.local:8980/counters/http-notification/uploads/f15f7f0abd58beb5061d01613c32d47b/HttpNotification.main.jar"
+#      && wget -O /usr/local/bin/docker-compose https://github.com/chain-action/http-notification/uploads/f15f7f0abd58beb5061d01613c32d47b/HttpNotification.main.jar"
 #    command: apt-get update && apt-get install -y wget
-#    command: wget -O /usr/local/bin/docker-compose http://gitlab.xeon24.local:8980/counters/http-notification/uploads/f15f7f0abd58beb5061d01613c32d47b/HttpNotification.main.jar
+#    command: wget -O /usr/local/bin/docker-compose https://github.com/chain-action/http-notification/uploads/f15f7f0abd58beb5061d01613c32d47b/HttpNotification.main.jar
 
