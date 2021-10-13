@@ -1,0 +1,51 @@
+app:
+  kafka_topic: example-topic
+#  kafka_topic: notifications-1
+  coeff_retry: 1.901
+
+  http_accept_domain_debug:
+    - '.+\.pipedream.net'
+    - '(www.|)requestinspector.com'
+    - '(www.|)requestwatch.com'
+  meta_verification_name:
+    - ftpro-notify-verification
+    - google-site-verification
+  http_accept_user_agent:
+    - 'FtPro-Notify-Bot'
+    - '*'
+  info_title: Service name
+  info_descr: service description
+  info_logo: https://service.domain/logo.svg
+  info_support_surf: 0:a9ef47b6bec35e001d1f295b34b9ec9abc0ca5c8623de4f414b4fd0b0dc6ca08
+mysql:
+  host: db #127.0.0.1
+  port: 3306
+  database: http_notification # utf8mb4_general_ci
+  user: user
+  password: 'not_safe_password'
+  character: utf8mb4
+kafka:
+  server: notification.services.tonlabs.io:29092 # host kafka server localhost:29092
+  group_id: group1
+  password: my-super-secret-password
+  username: kafka_user
+  sasl_mechanisms: SCRAM-SHA-512
+  security_protocol: sasl_plaintext
+redis:
+  host: redis # 127.0.0.1
+  port: 6379
+  database: 5
+http_sender:
+  timeout: 30
+  connect_timeout: 5
+http_server:
+  port: 8010
+  cors_hosts:
+    - '*'
+#    - domain.local:8080
+influxdb:
+  url: http://influxdb:8086 # set null or remove this line if you don't want event logging
+  token: 'my-super-secret-auth-token'
+  org: my-org
+  bucket: my-bucket
+

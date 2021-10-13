@@ -1,0 +1,98 @@
+{
+  "info": {
+    "contact": {
+      "email": "support@test.com",
+      "name": "Support"
+    },
+    "description": "The Test API",
+    "title": "Test API",
+    "version": "0.2.2"
+  },
+  "openapi": "3.0.0",
+  "servers": [
+    {
+      "description": "Test server",
+      "url": "http://0.0.0.0:8010/"
+    },
+    {
+      "description": "Local server",
+      "url": "http://127.0.0.1:8010/",
+      "variables": {}
+    }
+  ],
+  "paths": {
+    "/newPath": {
+      "post": {
+        "summary": "",
+        "description": "",
+        "parameters": [
+          {
+            "name": "uid",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "method",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "GET",
+                "POST",
+                "PUT"
+              ],
+              "default": "POST"
+            },
+            "allowEmptyValue": true
+          }
+        ],
+        "operationId": "First",
+        "responses": {
+          "200": {
+            "description": "Default response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Updated name of the pet"
+                  },
+                  "status": {
+                    "type": "string",
+                    "description": "Updated status of the pet"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "security": [],
+  "components": {
+    "links": {},
+    "callbacks": {},
+    "schemas": {},
+    "securitySchemes": {
+      "Authorization Bearer": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Authorization"
+      }
+    }
+  }
+}
