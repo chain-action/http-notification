@@ -13,9 +13,9 @@ _Attention: we should replace `localhost` with Ip or domain of your service_
 
 __api v0__
 
-Отправьте методом POST на `http://127.0.0.1:8010/v0/jsonrpc` с параметрами hash (уникальный хеш записи) и data (URL закодированный в base64)
+Отправьте методом POST на `http://localhost:8010/v0/jsonrpc` с параметрами hash (уникальный хеш записи) и data (URL закодированный в base64)
 ```shell
-curl 'http://127.0.0.1:8010/v0/jsonrpc' -X POST -H 'Content-Type: application/x-www-form-urlencoded' --data-raw 'hash=0a0b0c0d&data=aHR0cDovLzEyNy4wLjAuMTo4MTgxL3JlcXVlc3Q='
+curl 'http://localhost:8010/v0/jsonrpc' -X POST -H 'Content-Type: application/x-www-form-urlencoded' --data-raw 'hash=0a0b0c0d&data=aHR0cDovLzEyNy4wLjAuMTo4MTgxL3JlcXVlc3Q='
 ```
 
 __api v1__ (beta)
@@ -71,10 +71,10 @@ You will get a JSON object
 ```
 
 | Name | Description |
-| ------------- |: -------------: |
-| metaName | parameter `name` for meta tag |
-| metaUrl | parameter `content` for the page meta tag |
-| metaMain | parameter `content` for the main page meta tag | 
+| --------- | :--------------------------------------------- |
+| metaName  | parameter `name` for meta tag                  |
+| metaUrl   | parameter `content` for the page meta tag      |
+| metaMain  | parameter `content` for the main page meta tag | 
 
 *_metaMain for Main URL including `/`_
 
