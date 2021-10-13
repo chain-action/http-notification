@@ -2,6 +2,7 @@
 
 - [Fast launch with docker (recommend for test)](#fast-launch-with-docker)
 - [Manual installation](#manual-installation)
+- [All parameters of the config file](ConfigYML.md)
 
 ## Fast launch with docker
 
@@ -49,7 +50,7 @@ cd app
 wget -O HttpNotification.main.jar https://github.com/chain-action/http-notification/uploads/f15f7f0abd58beb5061d01613c32d47b/HttpNotification.main.jar
 ```
 
-- Copy the file `config.yml` and edit its parameters (mysql, kafka, influxdb sections). More on config.yml parameters [тут](ConfigYML.md)
+- Copy the file `config.yml` and edit its parameters (mysql, kafka, influxdb sections). [More on config.yml parameters](ConfigYML.md)
 ```shell
 wget -O config.yml https://github.com/chain-action/http-notification/-/raw/master/config.yml
 vim config.yml

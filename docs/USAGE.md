@@ -1,10 +1,12 @@
 # Usage
 
-- [Installation](INSTALL.md)
 - [Protecting the recipient page](#protecting-the-recipient-page)
+- [Parameter structure](#parameter-structure)
+- [Service Information](#service-information)
+- [All parameters of the config file](ConfigYML.md)
 
 
-_Attention: we should replace localhost with Ip or domain of your service_
+_Attention: we should replace `localhost` with Ip or domain of your service_
 
 ## Protecting the recipient page
 
@@ -70,7 +72,7 @@ echo -n Webhttps://testn1.free-ton.online/test_push.phpNotify | sha256sum
 echo -n Webhttps://testn1.free-ton.online/Notify | sha256sum
 ```
 
-### Parameter structure for creating API notification entity
+## Parameter structure
 Required to create a notification entity via the API. Available at `http://localhost:8010/v1/structure`, but only practical in v1 `http://localhost:8010/v1/structure`
 ```json
 {
@@ -135,7 +137,7 @@ Required to create a notification entity via the API. Available at `http://local
 This API can be used to automatically generate a user interface form.
 For example, you can get a list of options for the `method` parameter at` library.list.method`
 
-### Service Information
+## Service Information
 
 `http://localhost:8010/v0/info` 
 ```json
