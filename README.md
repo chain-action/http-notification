@@ -8,7 +8,7 @@ Features:
 - Extended support of HTTP recipient notification (url)
   - basic authorization
   - support of POST, GET, PUT, JSON-RPC 2.0 methods of HTTP
-- Correct work with HTTPS recipients
+  - Correct work with HTTPS recipients
   - support of custom port
 - All settings and optimizations in one file ([config.yml](docs/ConfigYML.md))
 - Verification of domain or page ownership to protect the recipient
