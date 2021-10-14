@@ -20,7 +20,7 @@ services:
       - notify_db_dev:/var/lib/mysql
 #      - ./init.sql:/data/application/init.sql
     ports:
-      - 3306:3306
+      - "3306:3306"
   adminer:
     image: adminer
     restart: always
@@ -32,7 +32,7 @@ services:
     image: redis:latest
 #    restart: always
     ports:
-      - 6379:6379
+      - "6379:6379"
   influxdb:
     image: influxdb:2.0
     ports:

@@ -6,7 +6,6 @@ volumes:
     external: true
   influxdb-storage:
 
-
 services:
   db:
     image: mariadb
