@@ -38,7 +38,7 @@ Decoding json object parameters API v1
 | Name | Description |
 | ------- | :--------------------------------------------- |
 | hash    | unique hash of the entry  |
-| method  | http methods: POST, PUT, JSONRPC, GET      |
+| method  | http methods: POST, PUT, JSONRPC, GET. default POST   |
 | url     | url address: https://domain/request | 
 | auth    | Authorization object. default `null`, Basic authorization: `{"user":"user1", "pass":"password"}`, Bearer token: `{"bearer":"secret-token"}` | 
 
@@ -114,19 +114,9 @@ Required to create a notification entity via the API. Available at `http://local
 {
   "result": {
     "library": {
-      "types": [
-        "string",
-        "int",
-        "list",
-        "object"
-      ],
+      "types": ["string", "int", "list", "object"],
       "list": {
-        "method": [
-          "GET",
-          "PUT",
-          "POST",
-          "JSONRPC"
-        ]
+        "method": ["GET", "PUT", "POST", "JSONRPC"]
       }
     },
     "success": true,

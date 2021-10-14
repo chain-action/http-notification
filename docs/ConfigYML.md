@@ -8,11 +8,11 @@ app:
   max_repeat: 15 # Maximum number of attempts to send, optional, default 15
   max_delay: 43200000 # Maximum pause (ms) between attempts to send a notification, optional, default 43200000 (12 hours)
 
-  http_accept_domain_debug:
+  http_accept_domain_debug: # support regex
     - '.+\.pipedream.net'
     - '(www.|)requestinspector.com'
     - '(www.|)requestwatch.com'
-#    - 'testn1.free-ton.online'
+#    - 'domain.com'
   meta_verification_name: # meta tag name
     - ftpro-notify-verification
     - google-site-verification
@@ -22,26 +22,26 @@ app:
   info_title: Service name
   info_descr: service description
   info_logo: https://service.domain/logo.svg
-  info_support_surf: 0:a9ef47b6bec35e001d1f295b34b9ec9abc0ca5c8623de4f414b4fd0b0dc6ca08
+  info_support_surf: '0:a9ef47b6bec35e001d1f295b34b9ec9abc0ca5c8623de4f414b4fd0b0dc6ca08'
 mysql:
   host: 127.0.0.1
   port: 3306
-  database: http_notification # utf8mb4_general_ci
+  database: db_name # utf8mb4_general_ci
   user: user
   password: 'not_safe_password'
   character: utf8mb4
 kafka:
   server: notification.services.tonlabs.io:29092 # host kafka server localhost:29092
-  group_id: group1
+  group_id: group1 
   password: my-super-secret-password
   username: kafka_user
-  sasl_mechanisms: SCRAM-SHA-512
-  security_protocol: sasl_plaintext
+  sasl_mechanisms: SCRAM-SHA-512 # support SCRAM-SHA-512, default null
+  security_protocol: sasl_plaintext # support SCRAM-SHA-512, default null
 redis:
   host: localhost
   port: 6379
   database: 5
-http_sender: # parameters for client nttp notifications 
+http_sender: # parameters for client Http notifications 
   timeout: 30 # In seconds, optional, default 60.0
   connect_timeout: 20 # In seconds, optional, default 20
   user_agent: 'OkHttp.java' # User Agent, optional, default OkHttp.java

@@ -1,6 +1,6 @@
 # Installation
 
-- [Fast launch with docker (recommend for test)](#fast-launch-with-docker)
+- [Fast launch with docker (recommended for testing)](#fast-launch-with-docker)
 - [Manual installation](#manual-installation)
 - [All parameters of the config file](ConfigYML.md)
 
@@ -66,14 +66,14 @@ java -Dfile.encoding=UTF-8 -jar HttpNotification.main.jar
 
 - Configure a backend server (nginx, apache, etc, ...) for API accessibility via https protocol
 
-Examples location for Nginx
+Examples `location` for Nginx
 ```txt
     location ~ ^/(v1|v0){
       proxy_pass http://127.0.0.1:8010;
     }
 ```
 
-## [Usage](USAGE.md)
+## [Usage application](USAGE.md)
 
 ## Misc for developers
 
