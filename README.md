@@ -22,7 +22,7 @@ Features:
 - Built-in freeze protection that stops the application in case of inactivity  
 - In the future, the use of more databases (PostgreSQL, H2, SQLite, Oracle, SQL Server) due to the utilization of the ORM framework
 
-## Документация
+## Documentation
 - [Installation](docs/INSTALL.md)
 - [Usage](docs/USAGE.md)
   - [More about the app parameters](docs/ConfigYML.md)
@@ -39,3 +39,7 @@ __Important__: When testing other URLs (the above URLs are added to debug except
 A [special test server](https://github.com/chain-action/httpserver4encoded-notifications) with [protocol](https://tonlabs.notion.site/Notification-provider-onboarding-3dd961bce8954d0da80208b9a908c773) decryption support was developed to receive notifications
 
 Information on the instructions https://github.com/freeton-org/readme will be placed in the repository, since the application number is not known before publication
+
+# Contact:
+- Telegram: [@webcounters](tg://resolve?domain=webcounters)
+- Surf: [0:a9ef47b6bec35e001d1f295b34b9ec9abc0ca5c8623de4f414b4fd0b0dc6ca08](https://uri.ton.surf/surf/0:a9ef47b6bec35e001d1f295b34b9ec9abc0ca5c8623de4f414b4fd0b0dc6ca08)
