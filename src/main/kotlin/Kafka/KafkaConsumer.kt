@@ -23,23 +23,17 @@ class KafkaConsumer(configYaml: com.uchuhimo.konf.Config?=null) {
     private val broker: String
     private val group_id: String
     private val duration_ms: Long
-//    private val topic: String
     private val configKafkaYaml = configYaml ?:  com.uchuhimo.konf.Config { addSpec(KafkaConf) }.from.yaml.file("./config.yml")
-
-//    private val process = false
 
     init {
         broker = configKafkaYaml[KafkaConf.server]
         group_id = configKafkaYaml[KafkaConf.group_id]
         duration_ms = configKafkaYaml[KafkaConf.duration_ms]
-//        topic = configKafkaYaml[KafkaConf.topic]
     }
-
 
     private fun create(brokers: String): Consumer<String, String> {
         val props = Properties()
         props["bootstrap.servers"] = brokers
-//        props["transactional.id"] = "my-transactional-id43"
         props["group.id"] = group_id
 
         props["enable.auto.commit"] = "false"
@@ -49,38 +43,23 @@ class KafkaConsumer(configYaml: com.uchuhimo.konf.Config?=null) {
         props["key.deserializer"] = StringDeserializer::class.java
         props["value.deserializer"] = StringDeserializer::class.java
 
-/*        if (configKafkaYaml[KafkaConf.sasl_mechanisms]!=null)  props["sasl.mechanisms"] = configKafkaYaml[KafkaConf.sasl_mechanisms]
-        if (configKafkaYaml[KafkaConf.security_protocol]!=null)  props["security.protocol"] = configKafkaYaml[KafkaConf.security_protocol]
-        if (configKafkaYaml[KafkaConf.username]!=null && configKafkaYaml[KafkaConf.password]!=null ) {
-            props["sasl.username"] = configKafkaYaml[KafkaConf.username]
-            props["sasl.password"] = configKafkaYaml[KafkaConf.password]
-        }*/
+        if (configKafkaYaml[KafkaConf.sasl_mechanisms]!=null && configKafkaYaml[KafkaConf.security_protocol]!=null ) {
 //        props["sasl.username"] = configKafkaYaml[KafkaConf.username]
 //        props["sasl.password"] = configKafkaYaml[KafkaConf.password]
-        props[CommonClientConfigs.SECURITY_PROTOCOL_CONFIG] = configKafkaYaml[KafkaConf.security_protocol]
-//        props[SaslConfigs.SASL_MECHANISM] = "PLAIN"
-        props[SaslConfigs.SASL_MECHANISM] = configKafkaYaml[KafkaConf.sasl_mechanisms]
-//        props[SaslConfigs.SASL_JAAS_CONFIG] = "org.apache.kafka.common.security.plain.PlainLoginModule required username=\"" + configKafkaYaml[KafkaConf.username] + "\" password=\"" +  configKafkaYaml[KafkaConf.password] + "\";"
-        props[SaslConfigs.SASL_JAAS_CONFIG] = "org.apache.kafka.common.security.scram.ScramLoginModule required username=\"" + configKafkaYaml[KafkaConf.username] + "\" password=\"" +  configKafkaYaml[KafkaConf.password] + "\";"
+            props[CommonClientConfigs.SECURITY_PROTOCOL_CONFIG] = configKafkaYaml[KafkaConf.security_protocol]
+            props[SaslConfigs.SASL_MECHANISM] = configKafkaYaml[KafkaConf.sasl_mechanisms]
+            if (configKafkaYaml[KafkaConf.sasl_mechanisms] == "SCRAM-SHA-512") {
+                props[SaslConfigs.SASL_JAAS_CONFIG] =
+                    "org.apache.kafka.common.security.scram.ScramLoginModule required username=\"" + configKafkaYaml[KafkaConf.username] + "\" password=\"" + configKafkaYaml[KafkaConf.password] + "\";"
+            } else {
+                props[SaslConfigs.SASL_JAAS_CONFIG] =
+                    "org.apache.kafka.common.security.plain.PlainLoginModule required username=\"" + configKafkaYaml[KafkaConf.username] + "\" password=\"" + configKafkaYaml[KafkaConf.password] + "\";"
+            }
+        }
 
-//        "sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username=\"USERNAME\" password=\"PASSWORD\";"
-
-
-//        {"security.protocol", "SASL_PLAINTEXT"},
-//        {"sasl.mechanisms", "SCRAM-SHA-512"},
-//        {"sasl.username", USER},
-//        {"sasl.password", PASS}
         return KafkaConsumer(props)
     }
-/*     private val consumer = create(broker)
-   fun subscribe(topics: List<String>){
-        try {
-            consumer.subscribe(topics)
-        } catch (e: IOException) {
-            logger.error { "Exception consumer.subscribe, $e" }
-        }
-    }
-
+/*
     fun close(){
         consumer.close()
     }
@@ -101,16 +80,12 @@ class KafkaConsumer(configYaml: com.uchuhimo.konf.Config?=null) {
             consumer.close()
         } else {
             repeat(maxRepeat) {
-                val result = pool(consumer, callback, Duration.ofMillis(9000))
+                val result = pool(consumer, callback, Duration.ofMillis(duration_ms))
                 if (!result) return@repeat
             }
             consumer.unsubscribe()
 //            consumer.close()
         }
-    }
-
-    fun commitSync2(offsets: Map<TopicPartition?, OffsetAndMetadata?>?){
-
     }
 
     fun commitSync(consumer: Consumer<String, String>, offset: Long){
@@ -141,9 +116,7 @@ class KafkaConsumer(configYaml: com.uchuhimo.konf.Config?=null) {
                         logger.debug { "error: ConsumerRecord=${it}" }
                     }
                 }
-//                    println(it)
             }
-//            return true
         }
         return true
     }
