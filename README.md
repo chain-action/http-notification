@@ -41,7 +41,7 @@ __Important__: When testing other URLs (the above URLs are added to debug except
 ### Testing with decryption support
 A [special test server](https://github.com/chain-action/httpserver4encoded-notifications) with [protocol](https://tonlabs.notion.site/Notification-provider-onboarding-3dd961bce8954d0da80208b9a908c773) decryption support was developed to receive notifications
 
-Information on the instructions https://github.com/freeton-org/readme will be placed in the repository, since the application number is not known before publication
+Information on the instructions https://github.com/freeton-org/readme: https://github.com/freeton-org/devex/pull/10
 
 # Contacts:
 - Telegram: [@webcounters](tg://resolve?domain=webcounters)
