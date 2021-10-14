@@ -5,6 +5,7 @@ Features:
   - No losses even in case of a server’s emergency shutdown
   - Repeated delivery in case of unavailability of the recipient or his error
   - Optimized delivery system with configurable attempt intervals and their duration
+- Cross-platform
 - Extended support of HTTP recipient notification (url)
   - basic authorization
   - support of POST, GET, PUT, JSON-RPC 2.0 methods of HTTP
