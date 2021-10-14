@@ -37,6 +37,7 @@ kafka:
   username: kafka_user
   sasl_mechanisms: SCRAM-SHA-512 # support SCRAM-SHA-512, default null
   security_protocol: sasl_plaintext # support SCRAM-SHA-512, default null
+  duration_ms: 5000 # config for pool consumer, default 5000 (ms)
 redis:
   host: localhost
   port: 6379
