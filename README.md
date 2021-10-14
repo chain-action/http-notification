@@ -5,6 +5,7 @@ Features:
   - No losses even in case of a server’s emergency shutdown
   - Repeated delivery in case of unavailability of the recipient or his error
   - Optimized delivery system with configurable attempt intervals and their duration
+- Cross-platform
 - Extended support of HTTP recipient notification (url)
   - basic authorization
   - support of POST, GET, PUT, JSON-RPC 2.0 methods of HTTP
@@ -40,6 +41,6 @@ A [special test server](https://github.com/chain-action/httpserver4encoded-notif
 
 Information on the instructions https://github.com/freeton-org/readme will be placed in the repository, since the application number is not known before publication
 
-# Contact:
+# Contacts:
 - Telegram: [@webcounters](tg://resolve?domain=webcounters)
 - Surf: [0:a9ef47b6bec35e001d1f295b34b9ec9abc0ca5c8623de4f414b4fd0b0dc6ca08](https://uri.ton.surf/surf/0:a9ef47b6bec35e001d1f295b34b9ec9abc0ca5c8623de4f414b4fd0b0dc6ca08)
