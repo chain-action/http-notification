@@ -23,6 +23,8 @@ Features:
 - Built-in freeze protection that stops the application in case of inactivity  
 - In the future, the use of more databases (PostgreSQL, H2, SQLite, Oracle, SQL Server) due to the utilization of the ORM framework
 
+Presentation and demonstration of work on YouTube: [youtu.be/XkrFFRWj_UA](https://youtu.be/XkrFFRWj_UA)
+
 ## Documentation
 - [Installation](docs/INSTALL.md)
 - [Usage](docs/USAGE.md)
