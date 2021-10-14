@@ -1,41 +1,41 @@
 # HTTP Notification Service
 
-Особенности:
-- Гарантированная доставка http уведомления
-  - Отсутствие потерь даже в случае аварийной остановки сервера
-  - Повторы доставки в случае недоступности получателя или его ошибки
-  - Оптимизированная система доставки с настраиваемыми интервалами попыток и их длительностью
-- Расширенная поддержка уведомления HTTP получателя (url)
-  - базовая авторизация
-  - поддержка HTTP методов POST, GET, PUT, JSON-RPC 2.0
-  - корректная работа с HTTPS получателями
-  - поддержка нестандартного порта
-- Все настройки и оптимизации в одном файле ([config.yml](docs/ConfigYML.md))
-- Проверка владения доменом или страницей для защиты получателя
-  - через robots.txt
-  - через meta tags внутри html страницы или главной страницы сайта
-  - конфигурирование исключений для отладки
-- Корректная обработка ошибок
-  - выдаёт коды ошибок с кратким сообщением.
-  - сервис не ломается при подаче некорректных данных
-- Логирование событий отправки в InfluxDB (для импорта в Grafana и т.д.)
-- Встроенная защита от зависания останавливающая приложение в случае отсутствия активности
-- В перспективе использование большего количества баз данных (PostgreSQL, H2, SQLite, Oracle, SQL Server), благодаря использованию ORM framework
+Features:
+- Guaranteed delivery of http notifications
+  - No losses even in case of a server’s emergency shutdown
+  - Repeated delivery in case of unavailability of the recipient or his error
+  - Optimized delivery system with configurable attempt intervals and their duration
+- Extended support of HTTP recipient notification (url)
+  - basic authorization
+  - support of POST, GET, PUT, JSON-RPC 2.0 methods of HTTP
+- Correct work with HTTPS recipients
+  - support of custom port
+- All settings and optimizations in one file ([config.yml](docs/ConfigYML.md))
+- Verification of domain or page ownership to protect the recipient
+  - via robots.txt
+  - via meta tags within the html page or the main page of the website
+  - configuring exceptions for debugging
+- Correct error processing
+  - Generates error codes with a short message.
+  - the service does not break down when submitting incorrect data
+- Logging of sending events to InfluxDB (for import to Grafana, etc.)
+- Built-in freeze protection that stops the application in case of inactivity  
+- In the future, the use of more databases (PostgreSQL, H2, SQLite, Oracle, SQL Server) due to the utilization of the ORM framework
 
 ## Документация
 - [Installation](docs/INSTALL.md)
 - [Usage](docs/USAGE.md)
-  - [Подробнее по параметрам приложения](docs/ConfigYML.md)
+  - [More about the app parameters](docs/ConfigYML.md)
 
-## Тестирование
-Для тестирования факта получения http уведомлений можно использовать общедоступные сервисы:
-- https://pipedream.com/ (рекомендуемый, есть поддержка выключения)
-- https://requestinspector.com/ (наиболее простой)
-- https://mocklab.io/ (красивый)
+## Testing
+To test the fact of receiving http notifications, you can use the following publicly accessible services:
+- https://pipedream.com/ (recommended, has a shutdown support)
+- https://requestinspector.com/ (the simplest one)
+- https://mocklab.io/ (beautiful)
 
 __Important__: When testing other URLs (the above URLs are added to debug exceptions), you must  [verify ownership of the domain or page](docs/USAGE.md#protecting-the-recipient-page). 
 
-### Тестирование с поддержкой дешифрования
-Для получения уведомлений был разработан [специальный тестовый сервер](https://github.com/chain-action/httpserver4encoded-notifications) с поддержкой дешифрования [по протоколу](https://tonlabs.notion.site/Notification-provider-onboarding-3dd961bce8954d0da80208b9a908c773)
+### Testing with decryption support
+A [special test server](https://github.com/chain-action/httpserver4encoded-notifications) with [protocol](https://tonlabs.notion.site/Notification-provider-onboarding-3dd961bce8954d0da80208b9a908c773) decryption support was developed to receive notifications
 
 Information on the instructions https://github.com/freeton-org/readme will be placed in the repository, since the application number is not known before publication
