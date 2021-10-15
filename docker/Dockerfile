@@ -1,6 +1,6 @@
 FROM openjdk:latest
 #ARG JAR_FILE=HttpNotification.main.jar
-ARG JAR_FILE=https://github.com/chain-action/http-notification/releases/download/v1.0.2/HttpNotification.main.jar
+ARG JAR_FILE=https://github.com/chain-action/http-notification/releases/download/v1.0.3/HttpNotification.main.jar
 ADD ${JAR_FILE} /app/app.jar
 COPY config.yml /app/config.yml
 #RUN /usr/bin/java --version

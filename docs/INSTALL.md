@@ -45,9 +45,9 @@ mkdir app
 cd app
 ```
 
-- [Download](https://github.com/chain-action/http-notification/releases/download/v1.0.2/HttpNotification.main.jar) or compile the application into an executable JAR file
+- [Download](https://github.com/chain-action/http-notification/releases/download/v1.0.3/HttpNotification.main.jar) or compile the application into an executable JAR file
 ```shell
-wget -O HttpNotification.main.jar https://github.com/chain-action/http-notification/releases/download/v1.0.2/HttpNotification.main.jar
+wget -O HttpNotification.main.jar https://github.com/chain-action/http-notification/releases/download/v1.0.3/HttpNotification.main.jar
 ```
 
 - Create file `config.yml` based on `example.config.yml` and edit its parameters (mysql, kafka, influxdb sections). [More on config.yml parameters](ConfigYML.md)
