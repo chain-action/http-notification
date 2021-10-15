@@ -30,6 +30,10 @@ services:
     ports:
       - "${APP_PORT}:8010"
 #    network_mode: host
+    depends_on:
+      - db
+      - redis
+      - influxdb
     links:
       - db
       - redis
