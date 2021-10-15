@@ -16,14 +16,6 @@ __Install__
 - Download and unpack repository `https://github.com/chain-action/http-notification/tree/contest`
 
 - Go to directory ./docker `cd ./docker`
-- Create Docker Volumes for Mysql Data Persistent Storage
-```shell
-docker volume create --driver local --opt type=none \
-    --opt device=/home/user/notify_db \
-    --opt o=bind notify_db
-#docker volume create --name=notify_db  # For Windows or build via Docker Desktop 
-```
-*_`/home/user/notify_db` replace for full path on your system_
 - Start the docker application (change ports in the `.env` file if they are busy)
 ```shell
 docker-compose up --build -d

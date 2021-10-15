@@ -8,5 +8,6 @@ RUN mkdir -p /app
 WORKDIR /app
 #CMD /usr/bin/java -Dfile.encoding=UTF-8 -jar app.jar --createtable
 #ENTRYPOINT /usr/bin/java -Dfile.encoding=UTF-8 -jar app.jar
-ENTRYPOINT if test ! -f "initialized.flag"; then /usr/bin/java -Dfile.encoding=UTF-8 -jar app.jar --createtable; touch initialized.flag; fi && /usr/bin/java -Dfile.encoding=UTF-8 -jar app.jar
+#ENTRYPOINT if test ! -f "initialized.flag"; then /usr/bin/java -Dfile.encoding=UTF-8 -jar app.jar --createtable; touch initialized.flag; fi && /usr/bin/java -Dfile.encoding=UTF-8 -jar app.jar
+ENTRYPOINT /usr/bin/java -Dfile.encoding=UTF-8 -jar app.jar --createtable && /usr/bin/java -Dfile.encoding=UTF-8 -jar app.jar
 EXPOSE 8010

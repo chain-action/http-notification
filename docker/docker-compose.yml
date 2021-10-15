@@ -1,15 +1,13 @@
 version: '3.1'
 
 volumes:
-#  notify_db:
   notify_db:
-    external: true
+#    external: true
   influxdb-storage:
 
 services:
   db:
     image: mariadb
-#    container_name: mariadb
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
@@ -29,7 +27,6 @@ services:
       dockerfile: Dockerfile
     ports:
       - "${APP_PORT}:8010"
-#    network_mode: host
     depends_on:
       - db
       - redis
@@ -41,6 +38,7 @@ services:
     restart: always
   influxdb:
     image: influxdb:2.0
+    restart: always
     ports:
       - '${INFLUXDB_PORT}:8086'
     volumes:
