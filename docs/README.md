@@ -1,5 +1,7 @@
 # HTTP Notification Service
 
+![HTTP Notification Service](img/notifications_service.png "HTTP Notification Service")
+
 Features:
 - Guaranteed delivery of http notifications
   - No losses even in case of a server’s emergency shutdown
@@ -40,9 +42,3 @@ __Important__: When testing other URLs (the above URLs are added to debug except
 
 ### Testing with decryption support
 A [special test server](https://github.com/chain-action/httpserver4encoded-notifications) with [protocol](https://tonlabs.notion.site/Notification-provider-onboarding-3dd961bce8954d0da80208b9a908c773) decryption support was developed to receive notifications
-
-Information on the instructions https://github.com/freeton-org/readme: https://github.com/freeton-org/devex/pull/10
-
-# Contacts:
-- Telegram: [@webcounters](tg://resolve?domain=webcounters)
-- Surf: [0:a9ef47b6bec35e001d1f295b34b9ec9abc0ca5c8623de4f414b4fd0b0dc6ca08](https://uri.ton.surf/surf/0:a9ef47b6bec35e001d1f295b34b9ec9abc0ca5c8623de4f414b4fd0b0dc6ca08)
