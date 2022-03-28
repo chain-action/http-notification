@@ -13,7 +13,7 @@ Features:
   - support of POST, GET, PUT, JSON-RPC 2.0 methods of HTTP
   - Correct work with HTTPS recipients
   - support of custom port
-- All settings and optimizations in one file ([config.yml](docs/ConfigYML.md))
+- All settings and optimizations in one file ([config.yml](ConfigYML.md))
 - Verification of domain or page ownership to protect the recipient
   - via robots.txt
   - via meta tags within the html page or the main page of the website
@@ -28,9 +28,9 @@ Features:
 Presentation and demonstration of work on YouTube: [youtu.be/XkrFFRWj_UA](https://youtu.be/XkrFFRWj_UA)
 
 ## Documentation
-- [Installation](docs/INSTALL.md)
-- [Usage](docs/USAGE.md)
-  - [More about the app parameters](docs/ConfigYML.md)
+- [Installation](INSTALL.md)
+- [Usage](USAGE.md)
+  - [More about the app parameters](ConfigYML.md)
 
 ## Testing
 To test the fact of receiving http notifications, you can use the following publicly accessible services:
@@ -38,7 +38,7 @@ To test the fact of receiving http notifications, you can use the following publ
 - https://requestinspector.com/ (the simplest one)
 - https://mocklab.io/ (beautiful)
 
-__Important__: When testing other URLs (the above URLs are added to debug exceptions), you must  [verify ownership of the domain or page](docs/USAGE.md#protecting-the-recipient-page). 
+__Important__: When testing other URLs (the above URLs are added to debug exceptions), you must  [verify ownership of the domain or page](USAGE.md#protecting-the-recipient-page). 
 
 ### Testing with decryption support
 A [special test server](https://github.com/chain-action/httpserver4encoded-notifications) with [protocol](https://tonlabs.notion.site/Notification-provider-onboarding-3dd961bce8954d0da80208b9a908c773) decryption support was developed to receive notifications
